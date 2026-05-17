@@ -17,10 +17,10 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="@drawable/ic_back"
             app:title="@string/recent_activity"
-            app:titleTextColor="@color/black"
-            app:navigationIcon="@drawable/ic_chevron_right"
-            android:rotationY="180" />
+            app:titleCentered="true"
+            app:titleTextColor="@color/black" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <com.google.android.material.card.MaterialCardView

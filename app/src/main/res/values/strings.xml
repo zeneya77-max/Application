@@ -1,133 +1,176 @@
 <resources>
-    <string name="app_name">Application</string>
-    <string name="casm">C.I.T.</string>
-    <string name="casm_full">(College of Information Technology)</string>
-    <string name="casm_mobile">C.I.T. Mobile</string>
-    <string name="user_label">User:</string>
-    <string name="compliance_officer">Campus Compliance Officer</string>
-    <string name="total_sanctions_label">Total Sanctions</string>
-    <string name="sample_count">12,500</string>
-    <string name="sample_trend">98%</string>
-    <string name="shortcut_label">Shortcut: My Sanctions</string>
-    <string name="view_detailed_record">View My Detailed Record</string>
-
-    <!-- My Sanctions Strings -->
-    <string name="my_sanctions_title">My Sanctions</string>
-    <string name="total_fines">Total Fines</string>
-    <string name="cs_hours_remaining">CS Hours Remaining</string>
-    <string name="sample_fines">₱1,250.00</string>
-    <string name="sample_hours">12 Hours</string>
-    <string name="active_sanctions">Active Sanctions</string>
-    <string name="missed_event">Missed Event</string>
-    <string name="cleanup_drive_lower">(clean-up drive)</string>
-    <string name="seminar_lower">(seminar)</string>
-
-    <!-- Notification Strings -->
-    <string name="notifications_title">Notifications</string>
-    <string name="no_notifications">No new notifications</string>
-
-    <!-- Homepage Strings -->
-    <string name="recent_activity">Recent Activity</string>
-    <string name="view_all">View all</string>
-    <string name="sanctions">Sanctions</string>
-    <string name="events">Events</string>
-    <string name="service">Service</string>
-    <string name="unpaid_count">2 unpaid</string>
-    <string name="upcoming_count">2 upcoming</string>
-    <string name="service_hours">3 hours</string>
-    <string name="amount_36">₱36.00</string>
-    <string name="amount_50">₱50.00</string>
-
-    <string name="paid_sanction_label">Paid sanction — ₱36.00</string>
-    <string name="new_sanction_label">New sanction: Late attendance</string>
-    <string name="joined_event_label">Joined event: Clean-up Drive</string>
-    <string name="upcoming_event_label">Upcoming event reminder: Tree Planting</string>
-    <string name="logged_service_label">Logged service — 3 hours</string>
-    <string name="service_approved_label">Service approved — 2 hours</string>
-    <string name="missed_event_label">Missed event: Seminar</string>
-
-    <string name="status_confirmed">confirmed</string>
-    <string name="status_unpaid">unpaid</string>
-    <string name="status_pending">pending</string>
-    <string name="status_upcoming">upcoming</string>
-    <string name="status_pending_approval">pending approval</string>
-    <string name="status_incomplete">incomplete</string>
-
-    <string name="nav_home">Home</string>
-    <string name="nav_sanction">My Sanction</string>
-    <string name="nav_notifications">Notifications</string>
-    <string name="nav_profile">Profile</string>
-
-    <!-- Login/Sign Up Strings -->
-    <string name="login">Login</string>
-    <string name="student">Student</string>
-    <string name="council">Council</string>
+    <string name="app_name">SancSee</string>
+    <string name="header_bg_desc">Header Background</string>
+    <string name="app_logo">App Logo</string>
+    <string name="welcome_sancsee">Welcome to SancSee</string>
+    <string name="secure_student_access">Secure Student Access</string>
+    <string name="student">STUDENT</string>
+    <string name="council">COUNCIL</string>
+    <string name="verify_identity">Verify Identity</string>
+    <string name="verify_id_desc">Enter your details to verify your status in the college.</string>
     <string name="student_id">Student ID</string>
-    <string name="council_id">Council ID</string>
-    <string name="council_login">Council Login</string>
-    <string name="council_login_sub">Sign in to access your council account</string>
+    <string name="hint_student_id">e.g. 12-1234</string>
+    <string name="full_name">Full Name</string>
+    <string name="hint_full_name">Enter your full name</string>
+    <string name="btn_continue">Activate</string>
+    <string name="verifying">Verifying...</string>
+    <string name="already_activated">Already activated your account?</string>
+    <string name="login_with_password">Login with Password</string>
+
+    <string name="step_2_of_3">2/3</string>
+    <string name="create_your_password">Create Your Password</string>
+    <string name="create_password_desc">Set a secure password for your future logins.</string>
+    <string name="create_password">Create Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="password_requirement">Use 8 or more characters with letters and numbers.</string>
+    <string name="password_save_securely">Your password will be saved securely on this device.</string>
+    <string name="btn_activate_account">Activate Account</string>
+    <string name="activating">Activating...</string>
+
+    <string name="welcome_back">Welcome Back</string>
+    <string name="login_continue">Login to continue</string>
     <string name="password">Password</string>
     <string name="forgot_password">Forgot Password?</string>
-    <string name="dont_have_account">Don’t have an account?</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="btn_login">Login</string>
+    <string name="logging_in">Logging in...</string>
+    <string name="need_help">Need help? Proceed to CIT Council Office</string>
+    <string name="secured_by_sancsee">Secured by SancSee System</string>
+
     <string name="sign_up">Sign Up</string>
-    <string name="enter_email">Enter your email</string>
-    <string name="enter_password">Enter your password</string>
-    <string name="enter_council_id">Enter your Council ID</string>
-    <string name="or_divider">OR</string>
-    <string name="app_logo">App Logo</string>
-    <string name="header_bg_desc">Header Background</string>
-    <string name="create_account">Create Account</string>
-    <string name="sign_up_sub">Sign up to get started</string>
-    <string name="full_name">Full Name</string>
-    <string name="email_address">Email Address</string>
-    <string name="student_id_number">Student ID Number</string>
-    <string name="mobile_number">Mobile Number</string>
+    <string name="council_login">Council Login</string>
+    <string name="council_login_sub">Authorized access only for council members.</string>
+    <string name="council_username">Username</string>
+    <string name="enter_council_username">Enter council username</string>
+    <string name="enter_password">Enter password</string>
+    <string name="login">Login</string>
+    <string name="access_denied">Access Denied</string>
+
+    <!-- Gender Selection -->
     <string name="gender">Gender</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
-    <string name="create_password">Create Password</string>
-    <string name="confirm_password">Confirm Password</string>
-    <string name="terms_agreement">I agree to the Terms and Conditions and Privacy Policy</string>
-    <string name="already_have_account">Already have an account?</string>
+    <string name="error_gender_required">Please select your gender</string>
 
-    <!-- Profile Screen Strings -->
-    <string name="profile_name_sample">Juan Dela Cruz</string>
-    <string name="profile_email_sample">juan.delacruz@email.com</string>
-    <string name="profile_phone_sample">+63 912 345 6789</string>
-    <string name="unpaid_sanctions_label">Unpaid Sanctions</string>
-    <string name="paid_sanctions_label">Paid Sanctions</string>
-    <string name="view_all_arrow">View all \u003E</string>
-    <string name="view_unpaid_arrow">View unpaid \u003E</string>
-    <string name="view_paid_arrow">View paid \u003E</string>
-    <string name="account_section">Account</string>
-    <string name="personal_info">Personal Information</string>
+    <!-- Management & Admin -->
+    <string name="choose_file">Choose File</string>
+    <string name="add">Add</string>
+    <string name="upload_student_list">Upload Student List</string>
+    <string name="no_file_selected">No file selected</string>
+    <string name="add_new_section">Add New Section</string>
+    <string name="current_sections">Current Sections</string>
+    <string name="section_name_hint">Section Name (e.g. 1A)</string>
+    <string name="manage_first_year">Manage First Year</string>
+    <string name="manage_students">Manage Students</string>
+    <string name="management_actions">Management Actions</string>
+    <string name="student_year_levels">Student Year Levels</string>
+    <string name="select_year_level_desc">Select a year level to manage sanctions and services.</string>
+    <string name="first_year">First Year</string>
+    <string name="view_manage_first_year">View and manage first year students</string>
+
+    <!-- Sanctions & Events -->
+    <string name="unpaid">Unpaid</string>
+    <string name="paid">Paid</string>
+    <string name="status_unpaid">Unpaid</string>
+    <string name="all">All</string>
+    <string name="upcoming">Upcoming</string>
+    <string name="completed">Completed</string>
+    <string name="missed_event">Missed Event</string>
+    <string name="late_arrival">Late Arrival</string>
+    <string name="total_unpaid_amount">Total Unpaid Amount</string>
+    <string name="total_paid_amount">Total Paid Amount</string>
+    <string name="flag_ceremony_label">(flag ceremony)</string>
+    <string name="intrams_day_1_label">(intrams day 1)</string>
+    <string name="general_meeting_label">(general meeting)</string>
+    <string name="seminar_label">(seminar)</string>
+    <string name="orientation_label">(orientation)</string>
+    <string name="recently_added">Recently Added</string>
+    <string name="manage_events">Manage Events</string>
+    <string name="event_history">Event History</string>
+    <string name="search_events_hint">Search events...</string>
+    <string name="no_events_found">No events found</string>
+    <string name="create_update_events_desc">Create, update, and manage events</string>
+    <string name="verify_service">Verify Service</string>
+    <string name="review_verify_records">Review and verify student service records</string>
+
+    <!-- Homepage & Profile -->
+    <string name="casm">SancSee</string>
+    <string name="casm_full">Sanction Tracking System</string>
+    <string name="user_label">User Avatar</string>
+    <string name="student_name_label">Student Name</string>
+    <string name="compliance_officer">Student Account</string>
+    <string name="total_sanctions">Total Sanctions</string>
+    <string name="sanctions">Sanctions</string>
+    <string name="events">Events</string>
+    <string name="service">Service</string>
+    <string name="recent_activity">Recent Activity</string>
+    <string name="view_all">View All</string>
+    <string name="log_out">Log Out</string>
+    <string name="portal_settings">Portal Settings</string>
+    <string name="pending">Pending</string>
+    <string name="verified">Verified</string>
+    <string name="council_information">Council Information</string>
+    <string name="council_account">Council Account</string>
+    <string name="council_admin">Council Admin</string>
     <string name="change_password">Change Password</string>
-    <string name="privacy_security">Privacy &amp; Security</string>
+    <string name="students">Students</string>
+    <string name="section_name_label">Section Name</string>
+    <string name="nav_profile">Profile</string>
+    <string name="nav_sanction">My Sanctions</string>
+    <string name="notifications_title">Notifications</string>
+    <string name="personal_info">Personal Information</string>
+    <string name="profile_information">Profile Information</string>
+    <string name="profile_name_sample">Student Name</string>
+    <string name="change_profile_photo">Change Profile Photo</string>
+    <string name="save_changes">Save Changes</string>
+    <string name="profile_email_sample">student@cbsua.edu.ph</string>
+    <string name="profile_phone_sample">+63 912 345 6789</string>
+    <string name="count_2">2</string>
+    <string name="count_0">0</string>
+    <string name="total_sanctions_label">Total</string>
+    <string name="unpaid_sanctions_label">Unpaid</string>
+    <string name="paid_sanctions_label">Settled</string>
+    <string name="account_section">Account</string>
+    <string name="settings_support">Settings &amp; Support</string>
     <string name="notification_settings">Notification Settings</string>
     <string name="other_section">Other</string>
     <string name="help_support">Help &amp; Support</string>
     <string name="about">About</string>
-    <string name="log_out">Log Out</string>
-    <string name="count_2">2</string>
-    <string name="count_0">0</string>
+    <string name="bullet_item_format">• %1$s</string>
 
-    <!-- Personal Information Strings -->
-    <string name="profile_information">Profile Information</string>
-    <string name="change_profile_photo">Tap the icon to change your profile photo</string>
-    <string name="date_of_birth">Date of Birth</string>
+    <!-- Defaults -->
+    <string name="default_price">₱0.00</string>
+    <string name="default_unpaid">0 unpaid</string>
+    <string name="default_upcoming">0 upcoming</string>
+    <string name="default_hours">0 hours</string>
+
+    <!-- Personal Information Fields -->
+    <string name="email_address">Email Address</string>
     <string name="phone_number">Phone Number</string>
-    <string name="student_employee_id">Student / Employee ID</string>
-    <string name="dept_office">Department / Office</string>
-    <string name="address">Address</string>
-    <string name="additional_info_optional">Additional Information (Optional)</string>
-    <string name="emergency_contact">Emergency Contact</string>
-    <string name="emergency_contact_number">Emergency Contact Number</string>
-    <string name="save_changes">Save Changes</string>
+    <string name="hint_phone_number">Enter your phone number</string>
+    <string name="student_employee_id">Student ID</string>
+    <string name="sample_student_id">2021-0001</string>
 
-    <string name="sample_dob">May 15, 1998</string>
-    <string name="sample_student_id">2023-00123</string>
-    <string name="sample_dept">Information Technology</string>
-    <string name="sample_address">123 Santos St. Manila, Philippines</string>
-    <string name="sample_emergency_contact">Maria Dela Cruz</string>
-    <string name="sample_emergency_number">+63 917 123 4567</string>
+    <!-- Notification Content -->
+    <string name="new_sanction_assigned">New Sanction Assigned</string>
+    <string name="event_joined">Event Joined</string>
+    <string name="service_approved">Service Approved</string>
+    <string name="today">Today</string>
+    <string name="yesterday">Yesterday</string>
+
+    <!-- Account Messages -->
+    <string name="account_activated">Account Activated!</string>
+
+    <!-- Error Messages -->
+    <string name="error_student_id_format">ID must be 6 digits and 1 hyphen (e.g., 12-1234)</string>
+    <string name="error_full_name_required">Full name is required</string>
+    <string name="error_username_required">Username is required</string>
+    <string name="error_password_required">Password is required</string>
+    <string name="error_phone_required">Phone number is required</string>
+
+    <!-- Accessibility -->
+    <string name="back_button">Back</string>
+    <string name="search_icon">Search Icon</string>
+    <string name="add_event">Add Event</string>
+    <string name="cit_subtitle">College of Information Technology</string>
 </resources>

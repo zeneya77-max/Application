@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#4A148C">
+    android:background="#1A0033"
+    tools:context="com.example.application.MainActivity">
 
     <!-- Header Section -->
     <FrameLayout
@@ -13,8 +14,8 @@
         android:layout_height="320dp"
         app:layout_constraintTop_toTopOf="parent">
 
-        <!-- Background Image with Overlay -->
         <ImageView
+            android:id="@+id/ivHeaderBg"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="@string/header_bg_desc"
@@ -24,322 +25,510 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#4D4A148C" />
+            android:background="#801A0033" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="50dp"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="40dp">
 
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="160dp"
-                android:layout_height="160dp"
-                app:cardBackgroundColor="@android:color/transparent"
-                app:cardCornerRadius="40dp"
-                app:cardElevation="0dp">
+            <ImageView
+                android:id="@+id/ivLogo"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:contentDescription="@string/app_logo"
+                android:src="@drawable/logo"
+                android:visibility="visible" />
 
-                <ImageView
+            <FrameLayout
+                android:id="@+id/layoutLockGlow"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:visibility="gone">
+                <View
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:contentDescription="@string/app_logo"
-                    android:padding="0dp"
-                    android:src="@drawable/logo" />
-            </com.google.android.material.card.MaterialCardView>
+                    android:background="@drawable/bg_lock_glow" />
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_lock"
+                    app:tint="#4A148C" />
+            </FrameLayout>
 
             <TextView
+                android:id="@+id/tvHeaderTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/casm_full"
-                android:textColor="#E0E0E0"
-                android:textSize="16sp"
+                android:layout_marginTop="16dp"
+                android:text="@string/welcome_sancsee"
+                android:textColor="@color/white"
+                android:textSize="22sp"
                 android:textStyle="bold" />
 
-            <View
-                android:layout_width="50dp"
-                android:layout_height="4dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/bg_violet_rounded"
-                android:backgroundTint="#BA68C8" />
+            <TextView
+                android:id="@+id/tvHeaderSubTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/secure_student_access"
+                android:textColor="#B3FFFFFF"
+                android:textSize="14sp" />
         </LinearLayout>
     </FrameLayout>
 
-    <!-- White Content Card -->
     <androidx.core.widget.NestedScrollView
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="-40dp"
         android:background="@drawable/bg_white_top_rounded"
         android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/headerContainer">
 
         <LinearLayout
-            android:id="@+id/loginn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="24dp">
 
-            <!-- Toggle Student/Council -->
+            <!-- Toggle Selector -->
             <LinearLayout
-                android:id="@+id/studorcoun"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="56dp"
+                android:layout_marginBottom="24dp"
                 android:background="@drawable/bg_gray_rounded"
                 android:backgroundTint="#F2F3F7"
-                android:baselineAligned="false"
                 android:orientation="horizontal"
-                android:padding="5dp">
+                android:padding="4dp">
 
                 <LinearLayout
+                    android:id="@+id/btnToggleStudent"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/bg_violet_rounded"
                     android:backgroundTint="#4A148C"
-                    android:gravity="center">
-
+                    android:gravity="center"
+                    android:orientation="horizontal">
                     <ImageView
-                        android:layout_width="22dp"
-                        android:layout_height="22dp"
+                        android:id="@+id/ivToggleStudent"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
                         android:layout_marginEnd="8dp"
-                        android:contentDescription="@null"
-                        android:src="@drawable/ic_student_cap"
-                        app:tint="@color/white" />
-
+                        android:src="@drawable/ic_person"
+                        app:tint="@color/white"
+                        android:contentDescription="@null" />
                     <TextView
+                        android:id="@+id/tvToggleStudent"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/student"
                         android:textColor="@color/white"
-                        android:textSize="15sp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/btnCouncilToggle"
+                    android:id="@+id/btnToggleCouncil"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:clickable="true"
-                    android:focusable="true">
-
+                    android:orientation="horizontal">
                     <ImageView
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
+                        android:id="@+id/ivToggleCouncil"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
                         android:layout_marginEnd="8dp"
-                        android:contentDescription="@null"
                         android:src="@drawable/ic_group"
-                        app:tint="#757575" />
+                        app:tint="#757575"
+                        android:contentDescription="@null" />
+                    <TextView
+                        android:id="@+id/tvToggleCouncil"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/council"
+                        android:textColor="#757575" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Student Flow -->
+            <LinearLayout
+                android:id="@+id/layoutStudentFlow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- STEP 1: Verify Identity -->
+                <LinearLayout
+                    android:id="@+id/layoutStep1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/council"
-                        android:textColor="#757575"
-                        android:textSize="15sp" />
+                        android:text="@string/student_id"
+                        android:textColor="@color/gray_text"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp"/>
+
+                    <LinearLayout
+                        android:id="@+id/containerStep1StudentId"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:background="@drawable/bg_input_field"
+                        android:paddingHorizontal="16dp"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp">
+                        <EditText
+                            android:id="@+id/etStep1StudentId"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:hint="@string/hint_student_id"
+                            android:inputType="number"
+                            android:maxLength="7"
+                            android:autofillHints="none" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/full_name"
+                        android:textColor="@color/gray_text"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp"/>
+
+                    <LinearLayout
+                        android:id="@+id/containerStep1FullName"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:background="@drawable/bg_input_field"
+                        android:paddingHorizontal="16dp"
+                        android:gravity="center_vertical">
+                        <EditText
+                            android:id="@+id/etStep1FullName"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:hint="@string/hint_full_name"
+                            android:inputType="textPersonName"
+                            android:autofillHints="name" />
+                    </LinearLayout>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp">
+                        <Button
+                            android:id="@+id/btnStep1Continue"
+                            android:layout_width="match_parent"
+                            android:layout_height="56dp"
+                            android:text="@string/btn_continue" />
+                        <ProgressBar
+                            android:id="@+id/pbStep1Loading"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:visibility="gone" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:id="@+id/tvLoginWithPassword"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/login_with_password"
+                        android:textColor="@color/violet_primary"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- STEP 2: Create Password and Gender Selection -->
+                <LinearLayout
+                    android:id="@+id/layoutStep2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Create Password"
+                        android:textColor="@color/gray_text"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp"/>
+
+                    <LinearLayout
+                        android:id="@+id/containerCreatePassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:background="@drawable/bg_input_field"
+                        android:paddingHorizontal="16dp"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp">
+                        <EditText
+                            android:id="@+id/etCreatePassword"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@android:color/transparent"
+                            android:inputType="textPassword"
+                            android:hint="Password" />
+                        <ImageView
+                            android:id="@+id/ivEyeCreatePassword"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_visibility_off"
+                            app:tint="@color/gray" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Select Gender"
+                        android:textColor="@color/gray_text"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp"/>
+
+                    <RadioGroup
+                        android:id="@+id/rgGender"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="24dp">
+                        <RadioButton
+                            android:id="@+id/rbMale"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Male"
+                            android:buttonTint="@color/violet_primary"/>
+                        <RadioButton
+                            android:id="@+id/rbFemale"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Female"
+                            android:buttonTint="@color/violet_primary"/>
+                    </RadioGroup>
+
+                    <Button
+                        android:id="@+id/btnStep2Finish"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:text="Finish Activation" />
+                </LinearLayout>
+
+                <!-- STEP 3: Login -->
+                <LinearLayout
+                    android:id="@+id/layoutStep3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/student_id"
+                        android:textColor="@color/gray_text"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp"/>
+
+                    <LinearLayout
+                        android:id="@+id/containerLoginStudentId"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:background="@drawable/bg_input_field"
+                        android:paddingHorizontal="16dp"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp">
+                        <EditText
+                            android:id="@+id/etLoginStudentId"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:hint="@string/student_id"
+                            android:inputType="number"
+                            android:maxLength="7"
+                            android:autofillHints="none" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/password"
+                        android:textColor="@color/gray_text"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp"/>
+
+                    <LinearLayout
+                        android:id="@+id/containerLoginPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:background="@drawable/bg_input_field"
+                        android:paddingHorizontal="16dp"
+                        android:gravity="center_vertical">
+                        <EditText
+                            android:id="@+id/etLoginPassword"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@android:color/transparent"
+                            android:inputType="textPassword"
+                            android:hint="@string/password"
+                            android:autofillHints="password" />
+                        <ImageView
+                            android:id="@+id/ivEyeStudent"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_visibility_off"
+                            app:tint="@color/gray"
+                            android:contentDescription="Toggle Password Visibility" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvForgotPasswordStudent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginTop="8dp"
+                        android:text="Forgot Password?"
+                        android:textColor="@color/violet_primary"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp">
+                        <Button
+                            android:id="@+id/btnLogin"
+                            android:layout_width="match_parent"
+                            android:layout_height="56dp"
+                            android:text="@string/btn_login" />
+                        <ProgressBar
+                            android:id="@+id/pbLoginLoading"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:visibility="gone" />
+                    </FrameLayout>
                 </LinearLayout>
             </LinearLayout>
 
-            <!-- Student ID Label -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="28dp"
-                android:text="@string/student_id"
-                android:textColor="#333333"
-                android:textSize="14sp"
-                android:textStyle="bold" />
-
-            <!-- Student ID Input Field -->
+            <!-- Council Flow -->
             <LinearLayout
+                android:id="@+id/layoutCouncilFlow"
                 android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/bg_input_field"
-                android:gravity="center_vertical"
-                android:paddingStart="14dp"
-                android:paddingEnd="14dp">
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
 
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="44dp"
-                    android:layout_height="44dp"
-                    app:cardBackgroundColor="@android:color/transparent"
-                    app:cardCornerRadius="12dp"
-                    app:cardElevation="0dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/council_username"
+                    android:textColor="@color/gray_text"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp"/>
 
-                    <ImageView
-                        android:id="@+id/person"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:contentDescription="@null"
-                        android:padding="11dp"
-                        android:src="@drawable/ic_person"
-                        app:tint="#4A148C" />
-                </com.google.android.material.card.MaterialCardView>
-
-                <EditText
-                    android:id="@+id/etEmail"
+                <LinearLayout
+                    android:id="@+id/layoutCouncilUsernameContainer"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:autofillHints="username"
-                    android:background="@android:color/transparent"
-                    android:hint="Enter your Student ID"
-                    android:inputType="text"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="12dp"
-                    android:textColor="#333333"
-                    android:textSize="16sp" />
-            </LinearLayout>
-
-            <!-- Password Label -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:text="@string/password"
-                android:textColor="#333333"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-
-            <!-- Password Input Field -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/bg_input_field"
-                android:gravity="center_vertical"
-                android:paddingStart="14dp"
-                android:paddingEnd="14dp">
-
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="44dp"
-                    android:layout_height="44dp"
-                    app:cardBackgroundColor="@android:color/transparent"
-                    app:cardCornerRadius="12dp"
-                    app:cardElevation="0dp">
-
-                    <ImageView
-                        android:id="@+id/pass"
+                    android:layout_height="56dp"
+                    android:background="@drawable/bg_input_field"
+                    android:paddingHorizontal="16dp"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="16dp">
+                    <EditText
+                        android:id="@+id/etCouncilUsername"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:contentDescription="@null"
-                        android:padding="11dp"
-                        android:src="@android:drawable/ic_lock_idle_lock"
-                        app:tint="#4A148C" />
-                </com.google.android.material.card.MaterialCardView>
-
-                <EditText
-                    android:id="@+id/etPassword"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:autofillHints="password"
-                    android:background="@android:color/transparent"
-                    android:hint="@string/enter_password"
-                    android:inputType="textPassword"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="12dp"
-                    android:textColor="#333333"
-                    android:textSize="16sp" />
-
-                <ImageView
-                    android:id="@+id/eyeToggle"
-                    android:layout_width="26dp"
-                    android:layout_height="26dp"
-                    android:contentDescription="@null"
-                    android:src="@drawable/ic_visibility_off"
-                    android:clickable="true"
-                    android:focusable="true"
-                    app:tint="#9E9E9E" />
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/btnForgotPassword"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:layout_marginTop="12dp"
-                android:text="@string/forgot_password"
-                android:textColor="#4A148C"
-                android:textSize="14sp"
-                android:textStyle="bold" />
-
-            <!-- Login Button -->
-            <Button
-                android:id="@+id/loginButton"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="40dp"
-                android:backgroundTint="#4A148C"
-                android:elevation="6dp"
-                android:text="@string/login"
-                android:textAllCaps="false"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:cornerRadius="16dp" />
-
-            <!-- OR Divider -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:layout_weight="1"
-                    android:background="#DBDBDB" />
+                        android:background="@android:color/transparent"
+                        android:hint="@string/council_username"
+                        android:inputType="text"
+                        android:autofillHints="username" />
+                </LinearLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="18dp"
-                    android:layout_marginEnd="18dp"
-                    android:text="@string/or_divider"
-                    android:textColor="#9E9E9E"
-                    android:textSize="14sp" />
+                    android:text="@string/password"
+                    android:textColor="@color/gray_text"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp"/>
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:layout_weight="1"
-                    android:background="#DBDBDB" />
-            </LinearLayout>
-
-            <!-- Sign Up Footer -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:gravity="center"
-                android:orientation="horizontal">
+                <LinearLayout
+                    android:id="@+id/layoutCouncilPasswordContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:background="@drawable/bg_input_field"
+                    android:paddingHorizontal="16dp"
+                    android:gravity="center_vertical">
+                    <EditText
+                        android:id="@+id/etCouncilPassword"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@android:color/transparent"
+                        android:inputType="textPassword"
+                        android:hint="@string/password"
+                        android:autofillHints="password" />
+                    <ImageView
+                        android:id="@+id/ivEyeCouncil"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_visibility_off"
+                        app:tint="@color/gray"
+                        android:contentDescription="Toggle Password Visibility" />
+                </LinearLayout>
 
                 <TextView
+                    android:id="@+id/tvForgotPasswordCouncil"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/dont_have_account"
-                    android:textColor="#757575"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:id="@+id/tvSignUp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:text="@string/sign_up"
-                    android:textColor="#4A148C"
-                    android:textSize="15sp"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="8dp"
+                    android:text="Forgot Password?"
+                    android:textColor="@color/violet_primary"
+                    android:textSize="12sp"
                     android:textStyle="bold" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp">
+                    <Button
+                        android:id="@+id/btnCouncilLogin"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:text="@string/login" />
+                    <ProgressBar
+                        android:id="@+id/pbCouncilLoading"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:visibility="gone" />
+                </FrameLayout>
             </LinearLayout>
+
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

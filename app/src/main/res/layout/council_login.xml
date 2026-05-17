@@ -4,283 +4,154 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#4A148C">
+    android:background="#F8F9FA"
+    tools:context=".CouncilLoginActivity">
 
-    <!-- Header Section -->
-    <FrameLayout
-        android:id="@+id/headerContainer"
-        android:layout_width="match_parent"
-        android:layout_height="320dp"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <!-- Background Image with Overlay -->
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:contentDescription="@string/header_bg_desc"
-            android:scaleType="centerCrop"
-            android:src="@drawable/cbsua" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#4D4A148C" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="50dp"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="160dp"
-                android:layout_height="160dp"
-                app:cardBackgroundColor="@android:color/transparent"
-                app:cardCornerRadius="40dp"
-                app:cardElevation="0dp">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:contentDescription="@string/app_logo"
-                    android:padding="0dp"
-                    android:src="@drawable/logo" />
-            </com.google.android.material.card.MaterialCardView>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/casm_full"
-                android:textColor="#E0E0E0"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <View
-                android:layout_width="50dp"
-                android:layout_height="4dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/bg_violet_rounded"
-                android:backgroundTint="#BA68C8" />
-        </LinearLayout>
-    </FrameLayout>
-
-    <!-- White Content Card -->
     <androidx.core.widget.NestedScrollView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="-40dp"
-        android:background="@drawable/bg_white_top_rounded"
-        android:fillViewport="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/headerContainer">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
         <LinearLayout
-            android:id="@+id/loginn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="24dp">
 
-            <!-- Toggle Student/Council -->
-            <LinearLayout
-                android:id="@+id/studorcoun"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:background="@drawable/bg_gray_rounded"
-                android:backgroundTint="#F2F3F7"
-                android:baselineAligned="false"
-                android:orientation="horizontal"
-                android:padding="5dp">
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:src="@drawable/logo"
+                android:contentDescription="@string/app_logo" />
 
-                <LinearLayout
-                    android:id="@+id/btnStudentToggle"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:layout_width="22dp"
-                        android:layout_height="22dp"
-                        android:layout_marginEnd="8dp"
-                        android:contentDescription="@null"
-                        android:src="@drawable/ic_student_cap"
-                        app:tint="#757575" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/student"
-                        android:textColor="#757575"
-                        android:textSize="15sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/bg_violet_rounded"
-                    android:backgroundTint="#4A148C"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
-                        android:layout_marginEnd="8dp"
-                        android:contentDescription="@null"
-                        android:src="@drawable/ic_group"
-                        app:tint="@color/white" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/council"
-                        android:textColor="@color/white"
-                        android:textSize="15sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <!-- Council ID Label -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="28dp"
-                android:text="@string/council_id"
-                android:textColor="#333333"
-                android:textSize="14sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="24dp"
+                android:text="@string/council_login"
+                android:textColor="@color/black"
+                android:textSize="24sp"
                 android:textStyle="bold" />
 
-            <!-- Council ID Input Field -->
-            <LinearLayout
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardWarning"
                 android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:visibility="gone"
+                app:cardBackgroundColor="#FFEBEE"
+                app:cardCornerRadius="8dp"
+                app:strokeColor="#FFCDD2"
+                app:strokeWidth="1dp">
+                <TextView
+                    android:id="@+id/tvWarningMessage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="12dp"
+                    android:text="Error Message"
+                    android:textColor="#D32F2F"
+                    android:textSize="13sp" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="@string/council_username"
+                android:textColor="@color/gray_text"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/layoutCouncilUsernameContainer"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="8dp"
                 android:background="@drawable/bg_input_field"
                 android:gravity="center_vertical"
-                android:paddingStart="14dp"
-                android:paddingEnd="14dp">
-
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="44dp"
-                    android:layout_height="44dp"
-                    app:cardBackgroundColor="@android:color/transparent"
-                    app:cardCornerRadius="12dp"
-                    app:cardElevation="0dp">
-
-                    <ImageView
-                        android:id="@+id/person"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:contentDescription="@null"
-                        android:padding="11dp"
-                        android:src="@drawable/ic_person"
-                        app:tint="#4A148C" />
-                </com.google.android.material.card.MaterialCardView>
-
+                android:paddingHorizontal="16dp">
                 <EditText
-                    android:id="@+id/etCouncilId"
+                    android:id="@+id/etCouncilUsername"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@android:color/transparent"
-                    android:hint="@string/enter_council_id"
+                    android:hint="@string/enter_council_username"
                     android:inputType="text"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="12dp"
-                    android:textColor="#333333"
-                    android:textSize="16sp" />
+                    android:textSize="14sp" />
             </LinearLayout>
 
-            <!-- Password Label -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="26dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/password"
-                android:textColor="#333333"
-                android:textSize="15sp"
+                android:textColor="@color/gray_text"
+                android:textSize="12sp"
                 android:textStyle="bold" />
 
-            <!-- Password Input Field -->
             <LinearLayout
+                android:id="@+id/layoutPasswordContainer"
                 android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:layout_marginTop="10dp"
+                android:layout_height="56dp"
+                android:layout_marginTop="8dp"
                 android:background="@drawable/bg_input_field"
                 android:gravity="center_vertical"
-                android:paddingStart="14dp"
-                android:paddingEnd="14dp">
-
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="44dp"
-                    android:layout_height="44dp"
-                    app:cardBackgroundColor="@android:color/transparent"
-                    app:cardCornerRadius="12dp"
-                    app:cardElevation="0dp">
-
-                    <ImageView
-                        android:id="@+id/passs"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:contentDescription="@null"
-                        android:padding="11dp"
-                        android:src="@android:drawable/ic_lock_idle_lock"
-                        app:tint="#4A148C" />
-                </com.google.android.material.card.MaterialCardView>
-
+                android:paddingHorizontal="16dp">
                 <EditText
                     android:id="@+id/etPassword"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
-                    android:hint="@string/enter_password"
+                    android:hint="@string/password"
                     android:inputType="textPassword"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="12dp"
-                    android:textColor="#333333"
-                    android:textSize="16sp" />
-
+                    android:textSize="14sp" />
                 <ImageView
                     android:id="@+id/eyeToggle"
-                    android:layout_width="26dp"
-                    android:layout_height="26dp"
-                    android:contentDescription="@null"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
                     android:src="@drawable/ic_visibility_off"
-                    android:clickable="true"
-                    android:focusable="true"
-                    app:tint="#9E9E9E" />
+                    app:tint="@color/gray" />
             </LinearLayout>
 
             <TextView
-                android:id="@+id/btnForgotPassword"
+                android:id="@+id/tvForgotPassword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
-                android:layout_marginTop="16dp"
-                android:text="@string/forgot_password"
-                android:textColor="#4A148C"
-                android:textSize="14sp"
+                android:layout_marginTop="8dp"
+                android:text="Forgot Password?"
+                android:textColor="@color/violet_primary"
+                android:textSize="12sp"
                 android:textStyle="bold" />
 
-            <!-- Login Button -->
             <Button
                 android:id="@+id/loginButton"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="32dp"
-                android:backgroundTint="#4A148C"
+                android:layout_height="56dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/bg_violet_rounded"
                 android:text="@string/login"
-                android:textAllCaps="false"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:cornerRadius="16dp" />
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/btnStudentToggle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="24dp"
+                android:padding="8dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Login as Student"
+                    android:textColor="@color/violet_primary"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

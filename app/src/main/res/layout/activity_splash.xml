@@ -1,34 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/splashRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg">
+    android:background="@color/violet_primary"
+    tools:context=".SplashActivity">
 
-    <LinearLayout
+    <!-- Cinematic Background (Blurred Campus) -->
+    <ImageView
+        android:id="@+id/ivSplashBg"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        android:scaleX="1.2"
+        android:scaleY="1.2"
+        android:src="@drawable/cbsua"
+        android:alpha="0.4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Soft Violet Gradient Overlay -->
+    <View
+        android:id="@+id/vGradientOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_gradient_purple"
+        android:alpha="0.8" />
+
+    <!-- Floating Particles Container -->
+    <FrameLayout
+        android:id="@+id/particleContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!-- Particles will be animated via code or defined here -->
+        <View
+            android:id="@+id/p1"
+            android:layout_width="4dp"
+            android:layout_height="4dp"
+            android:background="@color/white"
+            android:alpha="0.3" />
+        <View
+            android:id="@+id/p2"
+            android:layout_width="6dp"
+            android:layout_height="6dp"
+            android:background="@color/violet_light"
+            android:alpha="0.4" />
+        <View
+            android:id="@+id/p3"
+            android:layout_width="3dp"
+            android:layout_height="3dp"
+            android:background="@color/white"
+            android:alpha="0.5" />
+    </FrameLayout>
+
+    <!-- Rotating Tech Rings (Behind Logo) -->
+    <ImageView
+        android:id="@+id/ivRingOuter"
+        android:layout_width="280dp"
+        android:layout_height="280dp"
+        android:src="@drawable/bg_violet_rounded"
+        android:background="@null"
+        android:alpha="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/violet_light" />
+
+    <ImageView
+        android:id="@+id/ivRingInner"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:src="@drawable/bg_violet_rounded"
+        android:background="@null"
+        android:alpha="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/white" />
+
+    <!-- Glassmorphism Card Content -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/glassCard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:alpha="0"
+        app:cardBackgroundColor="#20FFFFFF"
+        app:cardCornerRadius="32dp"
+        app:cardElevation="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="#40FFFFFF"
+        app:strokeWidth="1dp">
 
-        <ImageView
-            android:id="@+id/logoImageView"
-            android:layout_width="180dp"
-            android:layout_height="180dp"
-            android:src="@drawable/logo"
-            android:contentDescription="@string/app_name" />
-
-        <TextView
-            android:id="@+id/appNameTextView"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@string/app_name"
-            android:textColor="@android:color/white"
-            android:textSize="28sp"
-            android:textStyle="bold"
-            android:visibility="invisible" />
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="40dp">
 
-    </LinearLayout>
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-</RelativeLayout>
+                <!-- Logo Glow Pulse View -->
+                <View
+                    android:id="@+id/vLogoGlow"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center"
+                    android:alpha="0"
+                    android:background="@drawable/bg_violet_rounded"
+                    android:backgroundTint="@color/white" />
+
+                <ImageView
+                    android:id="@+id/ivLogo"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/logo" />
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tvAppName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="SancSee"
+                android:textColor="@color/white"
+                android:textSize="36sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.1" />
+
+            <TextView
+                android:id="@+id/tvSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="College of Information Technology"
+                android:textColor="#E0E0E0"
+                android:textSize="14sp"
+                android:letterSpacing="0.05" />
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Final Transition Light Sweep -->
+    <View
+        android:id="@+id/vLightSweep"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/violet_primary"
+        android:alpha="0"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

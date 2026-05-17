@@ -2,43 +2,86 @@ package com.example.application
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.InputType
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
+import android.view.View
+import android.view.animation.AnimationUtils
+import android.widget.Button
+import android.widget.EditText
+import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.application.databinding.CouncilLoginBinding
 
 class CouncilLoginActivity : AppCompatActivity() {
-    private lateinit var binding: CouncilLoginBinding
-    private var isPasswordVisible = false
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = CouncilLoginBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(R.layout.council_login)
 
-        binding.loginButton.setOnClickListener {
-            // val intent = Intent(this, CouncilHomepageActivity::class.java)
-            // startActivity(intent)
-            // finish()
-        }
+        val etUsername = findViewById<EditText>(R.id.etCouncilUsername)
+        val etPassword = findViewById<EditText>(R.id.etPassword)
+        val containerUser = findViewById<View>(R.id.layoutCouncilUsernameContainer)
+        val containerPass = findViewById<View>(R.id.layoutPasswordContainer)
+        val btnLogin = findViewById<Button>(R.id.loginButton)
+        val tvForgotPassword = findViewById<View>(R.id.tvForgotPassword)
+        val ivEyeToggle = findViewById<ImageView>(R.id.eyeToggle)
 
-        binding.btnStudentToggle.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            overridePendingTransition(0, 0)
-            finish()
-        }
-
-        // Toggle Password Visibility
-        binding.eyeToggle.setOnClickListener {
+        // Password Visibility Toggle
+        var isPasswordVisible = false
+        ivEyeToggle.setOnClickListener {
             isPasswordVisible = !isPasswordVisible
             if (isPasswordVisible) {
-                binding.etPassword.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
-                binding.eyeToggle.setImageResource(R.drawable.ic_visibility)
+                etPassword.transformationMethod = HideReturnsTransformationMethod.getInstance()
+                ivEyeToggle.setImageResource(R.drawable.ic_visibility)
             } else {
-                binding.etPassword.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
-                binding.eyeToggle.setImageResource(R.drawable.ic_visibility_off)
+                etPassword.transformationMethod = PasswordTransformationMethod.getInstance()
+                ivEyeToggle.setImageResource(R.drawable.ic_visibility_off)
             }
-            binding.etPassword.setSelection(binding.etPassword.text.length)
+            etPassword.setSelection(etPassword.text.length)
         }
+
+        btnLogin.setOnClickListener {
+            val username = etUsername.text.toString().trim()
+            val password = etPassword.text.toString().trim()
+
+            // Reset backgrounds
+            containerUser.setBackgroundResource(R.drawable.bg_input_field)
+            containerPass.setBackgroundResource(R.drawable.bg_input_field)
+
+            var hasError = false
+            if (username.isEmpty()) {
+                showErrorEffect(containerUser)
+                hasError = true
+            }
+            if (password.isEmpty()) {
+                showErrorEffect(containerPass)
+                hasError = true
+            }
+
+            if (hasError) return@setOnClickListener
+
+            if (username == "admin" && password == "CITadmin") {
+                startActivity(Intent(this, CouncilHomepageActivity::class.java))
+                finish()
+            } else {
+                showErrorEffect(containerUser)
+                showErrorEffect(containerPass)
+                Toast.makeText(this, "Invalid credentials", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        tvForgotPassword.setOnClickListener {
+            startActivity(Intent(this, ForgotPasswordActivity::class.java))
+        }
+
+        findViewById<View>(R.id.btnStudentToggle).setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }
+    }
+
+    private fun showErrorEffect(view: View) {
+        view.setBackgroundResource(R.drawable.bg_input_field_error)
+        val shake = AnimationUtils.loadAnimation(this, R.anim.shake)
+        view.startAnimation(shake)
     }
 }
